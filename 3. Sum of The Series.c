@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <math.h>
 
 // Function to calculate factorial
-long long factorial(int n) {
-    long long fact = 1;
+long double factorial(int n) {
+    long double fact = 1.0;
     for (int i = 1; i <= n; i++) {
         fact *= i;
     }
@@ -10,23 +11,23 @@ long long factorial(int n) {
 }
 
 int main() {
-    int x, n;
-    double sum = 0.0;
+    double x, sum = 0.0;
+    int n;
 
     // Input for x and n
     printf("Enter the value of x: ");
-    scanf("%d", &x);
+    scanf("%lf", &x);
 
     printf("Enter the number of terms (n): ");
     scanf("%d", &n);
 
     // Loop to calculate the sum of the series
     for (int i = 1; i <= n; i++) {
-        sum += (pow(x, i) / factorial(i)); // pow(x, i) calculates x^i
+        sum += pow(x, i) / factorial(i);
     }
 
     // Output the result
-    printf("Sum of the series: %.6f\n", sum);
+    printf("Sum of the series: %.6Lf\n", sum);
 
     return 0;
 }
